@@ -41,16 +41,16 @@ else{
 if(controllable){
 
 	//Moving character + camera with checking for collisions
-	if(horizontal_speed > 0){
+	if(horizontal_speed > 0 && !place_meeting(x + 3, y, obj_npc)){
 		x += horizontal_speed;
 	}
-	else if(horizontal_speed < 0){
+	else if(horizontal_speed < 0 && !place_meeting(x - 3, y, obj_npc)){
 		x += horizontal_speed;
 	}
-	if(vertical_speed < 0){
+	if(vertical_speed < 0 && !place_meeting(x, y - 3, obj_npc)){
 		y += vertical_speed;
 	}
-	else if(vertical_speed > 0){
+	else if(vertical_speed > 0 && !place_meeting(x, y + 3, obj_npc)){
 		y += vertical_speed;
 	}
 
@@ -93,4 +93,12 @@ if(controllable){
 	//	image_index = 3;
 	//	image_speed = 0;
 	//}
+	if(place_meeting(x + 3, y, obj_npc) || place_meeting(x - 3, y, obj_npc) || place_meeting(x, y + 3, obj_npc) || place_meeting(x, y - 3, obj_npc)){
+		if(keyboard_check_pressed(vk_space)){
+			obj_text.text = "TEST";
+			instance_create_layer(obj_camera.x + 14, obj_camera.y + camera_get_view_height(view_camera[0]) - 64, "Instances", obj_textbox);
+			obj_text.talk = true;
+			controllable = false;
+		}
+	}
 }
