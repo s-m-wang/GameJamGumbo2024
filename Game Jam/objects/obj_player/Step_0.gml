@@ -1,6 +1,3 @@
-//Normalize diagonal vector
-move_speed_diagonal = move_speed * 0.707;
-
 //Room boundaries
 x = clamp(x, 0, room_width - 29);
 y = clamp(y, 0, room_height - 35);
@@ -26,73 +23,55 @@ if(!controllable){
 //Layering effect
 depth = -y;
 
-//Diagonal movement speed
-if(horizontal != 0 && vertical != 0){
-	horizontal_speed = horizontal * move_speed_diagonal;
-	vertical_speed = vertical * move_speed_diagonal;
-}
-//Vertical and horizontal movement speed
-else{
-	horizontal_speed = horizontal * move_speed;
-	vertical_speed = vertical * move_speed;
-}
-
-//Controlling characters
 if(controllable){
-
-	//Moving character + camera with checking for collisions
-	if(horizontal_speed > 0 && !place_meeting(x + 3, y, obj_npc)){
-		x += horizontal_speed;
+	//Movement system
+	if(horizontal != 0 || vertical != 0){
+		dir = point_direction(0, 0, horizontal, vertical);
+		move_x = lengthdir_x(move_speed, dir);
+		move_y = lengthdir_y(move_speed, dir);
+		
+		if(move_x > 0 && !place_meeting(x + 3, y, obj_npc)){
+			x += move_x;
+		}
+		else if(move_x < 0 && !place_meeting(x - 3, y, obj_npc)){
+			x += move_x;
+		}
+		if(move_y < 0 && !place_meeting(x, y - 3, obj_npc)){
+			y += move_y;
+		}
+		else if(move_y > 0 && !place_meeting(x, y + 3, obj_npc)){
+			y += move_y;
+		}
+		
+		//Set sprite
+		//REPLACE WITH CORRECT SPRITES
+		switch(dir){
+			case 0: sprite_index = spr_player; break;
+			case 45: sprite_index = spr_player; break;
+			case 90: sprite_index = spr_player; break;
+			case 135: sprite_index = spr_player; break;
+			case 180: sprite_index = spr_player; break;
+			case 225: sprite_index = spr_player; break;
+			case 270: sprite_index = spr_player; break;
+			case 315: sprite_index = spr_player; break;
+		}
 	}
-	else if(horizontal_speed < 0 && !place_meeting(x - 3, y, obj_npc)){
-		x += horizontal_speed;
+	else{
+		//Set idle sprite
+		//REPLACE WITH CORRECT IDLE SPRITES
+		switch(dir){
+			case 0: sprite_index = spr_player; break;
+			case 45: sprite_index = spr_player; break;
+			case 90: sprite_index = spr_player; break;
+			case 135: sprite_index = spr_player; break;
+			case 180: sprite_index = spr_player; break;
+			case 225: sprite_index = spr_player; break;
+			case 270: sprite_index = spr_player; break;
+			case 315: sprite_index = spr_player; break;
+		}
 	}
-	if(vertical_speed < 0 && !place_meeting(x, y - 3, obj_npc)){
-		y += vertical_speed;
-	}
-	else if(vertical_speed > 0 && !place_meeting(x, y + 3, obj_npc)){
-		y += vertical_speed;
-	}
-
-	//Moving with animation
-	if(keyboard_check_pressed(ord("D"))){
-		//sprite_index = spr_player_right;
-		image_speed = move_speed* 1;
-	}
-	else if(keyboard_check_pressed(ord("A"))){
-		//sprite_index = spr_player_left;
-		image_speed = move_speed * 1;
-	}
-	else if(keyboard_check_pressed(ord("S"))){
-		//sprite_index = spr_player_front;
-		image_speed = move_speed* 1;
-	}
-	else if(keyboard_check_pressed(ord("W"))){
-		//sprite_index = spr_player_back;
-		image_speed = move_speed* 1;
-	}
-
-	//Idle standing
-	//if(horizontal_speed = 0 && vertical_speed = 0 && sprite_index = spr_player_front && !keyboard_check(vk_anykey)){
-	//	sprite_index = spr_player_idle;
-	//	image_index = 0;
-	//	image_speed = 0;
-	//}
-	//else if(horizontal_speed = 0 && vertical_speed = 0 && sprite_index = spr_player_back && !keyboard_check(vk_anykey)){
-	//	sprite_index = spr_player_idle;
-	//	image_index = 1;
-	//	image_speed = 0;
-	//}
-	//else if(horizontal_speed = 0 && vertical_speed = 0 && sprite_index = spr_player_left && !keyboard_check(vk_anykey)){
-	//	sprite_index = spr_player_idle;
-	//	image_index = 2;
-	//	image_speed = 0;
-	//}
-	//else if(horizontal_speed = 0 && vertical_speed = 0 && sprite_index = spr_player_right && !keyboard_check(vk_anykey)){
-	//	sprite_index = spr_player_idle;
-	//	image_index = 3;
-	//	image_speed = 0;
-	//}
+	
+	//Dialogue with NPC
 	if(place_meeting(x + 3, y, obj_npc) || place_meeting(x - 3, y, obj_npc) || place_meeting(x, y + 3, obj_npc) || place_meeting(x, y - 3, obj_npc)){
 		if(keyboard_check_pressed(vk_space)){
 			obj_text.text = "TEST";
