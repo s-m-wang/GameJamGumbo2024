@@ -86,6 +86,7 @@ if(controllable){
 	if(place_meeting(x + 3, y, obj_pillar_playground) || place_meeting(x - 3, y, obj_pillar_playground) || place_meeting(x, y + 3, obj_pillar_playground) || place_meeting(x, y - 3, obj_pillar_playground)){
 		if(keyboard_check_pressed(vk_space)){
 			obj_bridge_tile.show = true;
+			obj_pillar_playground.glow = false;
 			controllable = false;
 		}
 	}
