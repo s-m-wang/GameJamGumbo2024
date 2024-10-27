@@ -1,5 +1,5 @@
 global.player_x = 384;
-global.player_y = 480;
+global.player_y = 352;
 
 if (global.cv1_college_party) {
 	room_goto(rm_party_cv1);

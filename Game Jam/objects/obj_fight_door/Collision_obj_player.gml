@@ -1,5 +1,5 @@
-global.player_x = 352;
-global.player_y = 480;
+global.player_x = 384;
+global.player_y = 288;
 
 if (global.cv1_fight) {
 	room_goto(rm_fight_cv1);

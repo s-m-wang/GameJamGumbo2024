@@ -1,5 +1,5 @@
-global.player_x = 480;
-global.player_y = 480;
+global.player_x = 384;
+global.player_y = 320;
 
 if (global.cv1_divorce_room) {
 	room_goto(rm_divorce_cv2);

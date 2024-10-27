@@ -1,5 +1,5 @@
-global.player_x = 480;
-global.player_y = 544;
+global.player_x = 320;
+global.player_y = 320;
 
 if (global.cv1_wedding) {
 	room_goto(rm_wedding_cv1);
