@@ -10,6 +10,7 @@ down = keyboard_check(ord("S"));
 
 horizontal = right - left;
 vertical = down - up;
+dir = point_direction(0, 0, horizontal, vertical);
 
 //Stop moving
 if(!controllable){
@@ -26,7 +27,6 @@ depth = -y;
 if(controllable){
 	//Movement system
 	if(horizontal != 0 || vertical != 0){
-		dir = point_direction(0, 0, horizontal, vertical);
 		move_x = lengthdir_x(move_speed, dir);
 		move_y = lengthdir_y(move_speed, dir);
 		

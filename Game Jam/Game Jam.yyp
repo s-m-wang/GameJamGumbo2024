@@ -10,6 +10,7 @@
     {"id":{"name":"obj_childhood_young","path":"objects/obj_childhood_young/obj_childhood_young.yy",},"order":3,},
     {"id":{"name":"obj_npc","path":"objects/obj_npc/obj_npc.yy",},"order":4,},
     {"id":{"name":"obj_textbox","path":"objects/obj_textbox/obj_textbox.yy",},"order":2,},
+    {"id":{"name":"sprite_childhood_teen","path":"sprites/sprite_childhood_teen/sprite_childhood_teen.yy",},"order":4,},
     {"id":{"name":"rm_neuron_paths","path":"rooms/rm_neuron_paths/rm_neuron_paths.yy",},"order":0,},
     {"id":{"name":"sprite_childhood_young","path":"sprites/sprite_childhood_young/sprite_childhood_young.yy",},"order":3,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
