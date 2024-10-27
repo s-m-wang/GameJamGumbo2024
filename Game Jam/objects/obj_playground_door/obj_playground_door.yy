@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_wedding_door",
+  "name": "obj_playground_door",
   "spriteId": {
     "name": "spr_door",
     "path": "sprites/spr_door/spr_door.yy",

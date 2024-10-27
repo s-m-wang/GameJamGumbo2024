@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_party_room_door_return",
   "spriteId": {
-    "name": "spr_test_indicator",
-    "path": "sprites/spr_test_indicator/spr_test_indicator.yy",
+    "name": "spr_door",
+    "path": "sprites/spr_door/spr_door.yy",
   },
   "solid": false,
   "visible": true,
