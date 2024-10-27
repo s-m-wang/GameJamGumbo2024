@@ -45,30 +45,30 @@ if(controllable){
 		
 		//Set sprite
 		//REPLACE WITH CORRECT SPRITES
-		switch(dir){
-			case 0: sprite_index = spr_player; break;
-			case 45: sprite_index = spr_player; break;
-			case 90: sprite_index = spr_player; break;
-			case 135: sprite_index = spr_player; break;
-			case 180: sprite_index = spr_player; break;
-			case 225: sprite_index = spr_player; break;
-			case 270: sprite_index = spr_player; break;
-			case 315: sprite_index = spr_player; break;
-		}
+		//switch(dir){
+		//	case 0: sprite_index = spr_player; break;
+		//	case 45: sprite_index = spr_player; break;
+		//	case 90: sprite_index = spr_player; break;
+		//	case 135: sprite_index = spr_player; break;
+		//	case 180: sprite_index = spr_player; break;
+		//	case 225: sprite_index = spr_player; break;
+		//	case 270: sprite_index = spr_player; break;
+		//	case 315: sprite_index = spr_player; break;
+		//}
 	}
 	else{
 		//Set idle sprite
 		//REPLACE WITH CORRECT IDLE SPRITES
-		switch(dir){
-			case 0: sprite_index = spr_player; break;
-			case 45: sprite_index = spr_player; break;
-			case 90: sprite_index = spr_player; break;
-			case 135: sprite_index = spr_player; break;
-			case 180: sprite_index = spr_player; break;
-			case 225: sprite_index = spr_player; break;
-			case 270: sprite_index = spr_player; break;
-			case 315: sprite_index = spr_player; break;
-		}
+		//switch(dir){
+		//	case 0: sprite_index = spr_player; break;
+		//	case 45: sprite_index = spr_player; break;
+		//	case 90: sprite_index = spr_player; break;
+		//	case 135: sprite_index = spr_player; break;
+		//	case 180: sprite_index = spr_player; break;
+		//	case 225: sprite_index = spr_player; break;
+		//	case 270: sprite_index = spr_player; break;
+		//	case 315: sprite_index = spr_player; break;
+		//}
 	}
 	
 	//Dialogue with NPC
