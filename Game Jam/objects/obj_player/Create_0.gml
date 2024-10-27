@@ -6,7 +6,12 @@ move_speed = 2;
 controllable = true;
 dialogue = false;
 
-image_speed = 0;
+going_up = false;
+going_down = false;
+going_left = false;
+going_right = false;
+
+image_speed = 1;
 
 
 
