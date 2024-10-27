@@ -1,2 +1,0 @@
-//Layering effect
-depth = -y;
