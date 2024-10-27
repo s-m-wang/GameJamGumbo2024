@@ -32,19 +32,27 @@ if(controllable){
 		
 		if(move_x > 0 && !place_meeting(x + 3, y, obj_npc) && !place_meeting(x + 3, y, obj_object)){
 			x += move_x;
-			obj_camera.x += move_x;
+			if(x + 32 > obj_camera.x + camera_get_view_width(view_camera[0])/2){
+				obj_camera.x += move_x;	
+			}
 		}
 		else if(move_x < 0 && !place_meeting(x - 3, y, obj_npc) && !place_meeting(x - 3, y, obj_object)){
 			x += move_x;
-			obj_camera.x += move_x;
+			if(x < obj_camera.x + camera_get_view_width(view_camera[0])/2 - 32){
+				obj_camera.x += move_x;	
+			}
 		}
 		if(move_y < 0 && !place_meeting(x, y - 3, obj_npc) && !place_meeting(x, y - 3, obj_object)){
 			y += move_y;
-			obj_camera.y += move_y;
+			if(y + 32 < obj_camera.y + camera_get_view_height(view_camera[0])/2){
+				obj_camera.y += move_y;
+			}
 		}
 		else if(move_y > 0 && !place_meeting(x, y + 3, obj_npc) && !place_meeting(x, y + 3, obj_object)){
 			y += move_y;
-			obj_camera.y += move_y;
+			if(y > obj_camera.y + camera_get_view_height(view_camera[0])/2 - 32){
+				obj_camera.y += move_y;
+			}
 		}
 		
 		//Set sprite
@@ -91,3 +99,6 @@ if(controllable){
 		}
 	}
 }
+
+show_debug_message(obj_camera.x + camera_get_view_width(view_camera[0])/2 - 16)
+show_debug_message(x)
