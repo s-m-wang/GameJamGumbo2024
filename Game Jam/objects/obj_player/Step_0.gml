@@ -30,17 +30,21 @@ if(controllable){
 		move_x = lengthdir_x(move_speed, dir);
 		move_y = lengthdir_y(move_speed, dir);
 		
-		if(move_x > 0 && !place_meeting(x + 3, y, obj_npc)){
+		if(move_x > 0 && !place_meeting(x + 3, y, obj_npc) && !place_meeting(x + 3, y, obj_object)){
 			x += move_x;
+			obj_camera.x += move_x;
 		}
-		else if(move_x < 0 && !place_meeting(x - 3, y, obj_npc)){
+		else if(move_x < 0 && !place_meeting(x - 3, y, obj_npc) && !place_meeting(x - 3, y, obj_object)){
 			x += move_x;
+			obj_camera.x += move_x;
 		}
-		if(move_y < 0 && !place_meeting(x, y - 3, obj_npc)){
+		if(move_y < 0 && !place_meeting(x, y - 3, obj_npc) && !place_meeting(x, y - 3, obj_object)){
 			y += move_y;
+			obj_camera.y += move_y;
 		}
-		else if(move_y > 0 && !place_meeting(x, y + 3, obj_npc)){
+		else if(move_y > 0 && !place_meeting(x, y + 3, obj_npc) && !place_meeting(x, y + 3, obj_object)){
 			y += move_y;
+			obj_camera.y += move_y;
 		}
 		
 		//Set sprite
@@ -58,16 +62,13 @@ if(controllable){
 	}
 	else{
 		//Set idle sprite
-		//REPLACE WITH CORRECT IDLE SPRITES
-		switch(dir){
-			case 0: image_speed = 0; image_index = 1; break;
-			case 45: break;
-			case 90: image_speed = 0; image_index = 1; break;
-			case 135: break;
-			case 180: image_speed = 0; image_index = 1; break;
-			case 225: break;
-			case 270: sprite_index = spr_player_idle_down; image_speed = 1; break;
-			case 315: break;
+		if(sprite_index = spr_player_walk_down){
+			image_speed = 1;
+			sprite_index = spr_player_idle_down;
+		}
+		else if(sprite_index != spr_player_idle_down){
+			image_speed = 0;
+			image_index = 1;
 		}
 	}
 	
@@ -75,8 +76,16 @@ if(controllable){
 	if(place_meeting(x + 3, y, obj_npc) || place_meeting(x - 3, y, obj_npc) || place_meeting(x, y + 3, obj_npc) || place_meeting(x, y - 3, obj_npc)){
 		if(keyboard_check_pressed(vk_space)){
 			obj_text.text = "TEST";
-			instance_create_layer(obj_camera.x + 14, obj_camera.y + camera_get_view_height(view_camera[0]) - 64, "Instances", obj_textbox);
+			instance_create_layer(obj_camera.x, obj_camera.y + camera_get_view_height(view_camera[0]) - 128, "Instances", obj_textbox);
 			obj_text.talk = true;
+			controllable = false;
+		}
+	}
+	
+	//Create playground bridge
+	if(place_meeting(x + 3, y, obj_pillar_playground) || place_meeting(x - 3, y, obj_pillar_playground) || place_meeting(x, y + 3, obj_pillar_playground) || place_meeting(x, y - 3, obj_pillar_playground)){
+		if(keyboard_check_pressed(vk_space)){
+			obj_bridge_tile.show = true;
 			controllable = false;
 		}
 	}

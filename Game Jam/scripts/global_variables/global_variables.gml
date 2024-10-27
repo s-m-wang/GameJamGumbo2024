@@ -1,5 +1,5 @@
-global.player_x = 640;
-global.player_y = 352;
+global.player_x = 608;
+global.player_y = 608;
 
 //cv stands for corrupted version
 global.cv1_childhood_room = false;
